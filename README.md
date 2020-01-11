@@ -1,0 +1,1 @@
+run populate_db.py in data folder. Fill config accordingly.
