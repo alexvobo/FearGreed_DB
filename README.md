@@ -25,7 +25,7 @@ This is a program that will populate a MySQL database with data from the followi
   if __name__ == '__main__':
     '''Contains necessary functions to maintain DB'''
 
-    from data.models import create_tables <--- add # to beginning of line
+    from data.models import create_tables <--- 'add # to beginning of line'
 
-    create_tables() <--- add # to beginning of line
+    create_tables() <--- 'add # to beginning of line'
 
