@@ -19,6 +19,13 @@ This is a program that will populate a MySQL database with data from the followi
 
     # Change 'YOUR-KEY-HERE' to your API key
     CRYPTOCOMPARE_KEY = os.environ.get('CRYPTOCOMPARE_KEY', 'YOUR-KEY-HERE')
-- Run #### populate_db.py
- 
-run populate_db.py in data folder. Fill config accordingly.
+- Run `populate_db.py`
+ - Comment out the following lines
+  ```python
+  if __name__ == '__main__':
+    '''Contains necessary functions to maintain DB'''
+
+    from data.models import create_tables <--- add # to beginning of line
+
+    create_tables() <--- add # to beginning of line
+
