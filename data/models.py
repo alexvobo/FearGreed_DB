@@ -55,5 +55,3 @@ def create_tables():
     finally:
         connection.close()
 
-
-create_tables()
