@@ -141,13 +141,12 @@ def update_db(btc=None, fg=None):
 if __name__ == '__main__':
     '''Contains necessary functions to maintain DB'''
 
+    '''Create database and tables'''
     from data.models import create_tables
-
     create_tables()
 
     '''Fetch data from both endpoints'''
     btc_data = fetch_btc()
-
     fg_data = fetch_fg()
 
     '''Update database with fetched data'''
