@@ -6,6 +6,8 @@ This is a program that will populate a MySQL database with data from the followi
 - [BTC Historical Data](https://min-api.cryptocompare.com/) - *API Key Required*
 
 ## Instructions
+- Install MySQL (hosted DB coming soon...)
+  - #### config.ini - Add DB info
 - Obtain API Key from Cryptocompare
   - Set the CRYPTOCOMPARE_KEY variable to your API key or add CRYPTOCOMPARE_KEY to system env variables
   - #### populate_db.py
@@ -15,8 +17,8 @@ This is a program that will populate a MySQL database with data from the followi
     ...
     url = 'https://min-api.cryptocompare.com/data/v2/histoday'
 
-    # Change to your key here or set the key as an environment variable
-    CRYPTOCOMPARE_KEY = os.environ.get('CRYPTOCOMPARE_KEY')
-
-    
+    # Change 'YOUR-KEY-HERE' to your API key
+    CRYPTOCOMPARE_KEY = os.environ.get('CRYPTOCOMPARE_KEY', 'YOUR-KEY-HERE')
+- Run #### populate_db.py
+ 
 run populate_db.py in data folder. Fill config accordingly.
