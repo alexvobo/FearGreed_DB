@@ -20,12 +20,13 @@ This is a program that will populate a MySQL database with data from the followi
     # Change 'YOUR-KEY-HERE' to your API key
     CRYPTOCOMPARE_KEY = os.environ.get('CRYPTOCOMPARE_KEY', 'YOUR-KEY-HERE')
 - Run `populate_db.py`
- - #### populate_db.py - Comment out code after first run
-  ```python
-  if __name__ == '__main__':
-    '''Contains necessary functions to maintain DB'''
+- Comment out code after first run
+    - #### populate_db.py
+    ```python
+    if __name__ == '__main__':
+      '''Contains necessary functions to maintain DB'''
 
-    from data.models import create_tables <--- 'add # to beginning of line'
+      from data.models import create_tables <--- 'add # to beginning of line'
 
-    create_tables() <--- 'add # to beginning of line'
+      create_tables() <--- 'add # to beginning of line'
 
