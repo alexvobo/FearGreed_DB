@@ -48,8 +48,8 @@ def create_tables():
             cursor.execute(btc_table)
             print('     -->Done')
             print('   Creating fg_data table')
-            print('     -->Done')
             cursor.execute(fg_table)
+            print('     -->Done')
         print('\nCommitting changes')
         connection.commit()
     finally:
