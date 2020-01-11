@@ -9,7 +9,8 @@ This is a program that will populate a MySQL database with data from the followi
 - Install MySQL (hosted DB coming soon...)
   - #### config.ini - Add DB info
 - Obtain API Key from Cryptocompare
-  - Set the CRYPTOCOMPARE_KEY variable to your API key or add CRYPTOCOMPARE_KEY to system env variables
+  - Set the CRYPTOCOMPARE_KEY variable to your API key (replace 'YOUR-KEY-HERE') 
+  - *(Optional)* Add CRYPTOCOMPARE_KEY to system env variables, do not modify the line
   - #### populate_db.py
     ```python
     def fetch_btc():
