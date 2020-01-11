@@ -1,33 +1,12 @@
+import inspect
+
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
-from configparser import ConfigParser
 import os
 import requests
 import pandas as pd
 import pymysql
 import pymysql.cursors
-
-
-def read_db_config(filename='config.ini', section='mysql'):
-    """ Read database configuration file and return a dictionary object
-    :param filename: name of the configuration file
-    :param section: section of database configuration
-    :return: a dictionary of database parameters
-    """
-    print("Reading DB config...")
-    # create parser and read ini configuration file
-    parser = ConfigParser()
-    parser.read(filename)
-
-    # get section, default to mysql
-    db = {}
-    if parser.has_section(section):
-        items = parser.items(section)
-        for item in items:
-            db[item[0]] = item[1]
-    else:
-        raise Exception('{0} not found in the {1} file'.format(section, filename))
-
-    return db
+from data.cfg_parser import read_db_config, set_db_name
 
 
 def fetch_btc():
@@ -103,10 +82,10 @@ def is_empty(df):
     """
 
     if df is None:
-        print("None\n")
+        # print("None\n")
         return True
     else:
-        print("Not empty\n")
+        # print("Not empty\n")
         return df.empty
 
 
@@ -119,7 +98,14 @@ def update_db(btc=None, fg=None):
     """
 
     print('Connecting to MySQL database...')
+
     db_config = read_db_config()
+    db_name = db_config['database']
+    if not db_name:
+        db_config['database'] = set_db_name()
+        print("Database set successfully to: " + db_name)
+        print("To permanently set DB name edit " + inspect.getfullargspec(read_db_config).defaults[0])
+
     connection = pymysql.connect(**db_config)
 
     try:
@@ -155,10 +141,15 @@ def update_db(btc=None, fg=None):
 
 if __name__ == '__main__':
     '''Contains necessary functions to maintain DB'''
-    # from data.models import create_table
-    # create_table()
 
+    '''Uncomment the two lines below for the first run'''
+    # from data.models import create_tables
+
+    # create_tables()
+
+    '''Fetch data from both endpoints'''
     btc_data = fetch_btc()
     fg_data = fetch_fg()
 
+    '''Update database with fetched data'''
     update_db(btc_data, fg_data)
