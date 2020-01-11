@@ -18,9 +18,8 @@ def fetch_btc():
 
     url = 'https://min-api.cryptocompare.com/data/v2/histoday'
 
+    # Change 'YOUR-KEY-HERE' to your API key
     CRYPTOCOMPARE_KEY = os.environ.get('CRYPTOCOMPARE_KEY', 'YOUR-KEY-HERE')
-
-    assert CRYPTOCOMPARE_KEY != 'YOUR-KEY-HERE'
 
     parameters = {
         'fsym': 'BTC',
@@ -142,13 +141,13 @@ def update_db(btc=None, fg=None):
 if __name__ == '__main__':
     '''Contains necessary functions to maintain DB'''
 
-    '''Uncomment the two lines below for the first run'''
-    # from data.models import create_tables
+    from data.models import create_tables
 
-    # create_tables()
+    create_tables()
 
     '''Fetch data from both endpoints'''
     btc_data = fetch_btc()
+
     fg_data = fetch_fg()
 
     '''Update database with fetched data'''
