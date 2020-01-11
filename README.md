@@ -20,7 +20,7 @@ This is a program that will populate a MySQL database with data from the followi
     # Change 'YOUR-KEY-HERE' to your API key
     CRYPTOCOMPARE_KEY = os.environ.get('CRYPTOCOMPARE_KEY', 'YOUR-KEY-HERE')
 - Run `populate_db.py`
-- Comment out code after first run
+- *(Optional)* Comment out code after first run
     - #### populate_db.py
     ```python
     if __name__ == '__main__':
