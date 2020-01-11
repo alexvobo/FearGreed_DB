@@ -1,5 +1,4 @@
 import inspect
-
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import os
 import requests
@@ -143,6 +142,7 @@ if __name__ == '__main__':
 
     '''Create database and tables'''
     from data.models import create_tables
+
     create_tables()
 
     '''Fetch data from both endpoints'''

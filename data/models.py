@@ -54,4 +54,3 @@ def create_tables():
         connection.commit()
     finally:
         connection.close()
-
